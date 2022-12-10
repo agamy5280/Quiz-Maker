@@ -1,0 +1,464 @@
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic);
+@import url(https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700italic,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic);
+.body {
+  font-family: "Libre Baskerville", serif;
+  font-size: 62.5%;
+  color: #180A0A;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.body:before, .body:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  z-index: -100;
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(./bg-masthead.jpg);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  filter: blur(5px);
+}
+.body:after {
+  z-index: -90;
+}
+
+.wrapper {
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+.wrapper:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  margin-right: 0;
+  vertical-align: middle;
+  width: 1px;
+}
+
+.info {
+  -webkit-animation: info-appear 3s 1;
+  -moz-animation: info-appear 3s 1;
+  -o-animation: info-appear 3s 1;
+  animation: info-appear 3s 1;
+}
+
+.infobox {
+  width: 600px;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+.infobox:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: " ";
+  background: white;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-animation: opening-left 2s 1;
+  -moz-animation: opening-left 2s 1;
+  -o-animation: opening-left 2s 1;
+  animation: opening-left 2s 1;
+}
+.infobox:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  content: " ";
+  background: white;
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: right bottom;
+  -moz-transform-origin: right bottom;
+  -o-transform-origin: right bottom;
+  transform-origin: right bottom;
+  overflow: visible;
+  -webkit-animation: opening-right 2s 1;
+  -moz-animation: opening-right 2s 1;
+  -o-animation: opening-right 2s 1;
+  animation: opening-right 2s 1;
+}
+.infobox .title {
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+.infobox .title h1 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 5em;
+  letter-spacing: 0.25em;
+  margin-right: -0.3em;
+  position: relative;
+  font-weight: 300;
+  margin: 50px 0 50px 0;
+}
+.infobox .links {
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+.infobox .links a, .infobox .links a:hover, .infobox .links a:visited {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 2.2em;
+  font-weight: 300;
+  color: pink;
+  letter-spacing: 0.3em;
+  border: 1px solid pink;
+  padding: 15px;
+  -webkit-animation: bg 1.2s 2s ease-in-out 1;
+  -moz-animation: bg 1.2s 2s ease-in-out 1;
+  -o-animation: bg 1.2s 2s ease-in-out 1;
+  animation: bg 1.2s 2s ease-in-out 1;
+}
+.infobox .links a:nth-child(2), .infobox .links a:hover:nth-child(2), .infobox .links a:visited:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-animation-delay: 2.2s;
+  -moz-animation-delay: 2.2s;
+  -o-animation-delay: 2.2s;
+  animation-delay: 2.2s;
+}
+.infobox .links a:nth-child(3), .infobox .links a:hover:nth-child(3), .infobox .links a:visited:nth-child(3) {
+  -webkit-animation-delay: 2.4s;
+  -moz-animation-delay: 2.4s;
+  -o-animation-delay: 2.4s;
+  animation-delay: 2.4s;
+}
+.infobox .links a:hover {
+  background: #E5BA73;
+  color: #141414;
+}
+.infobox .subtitle {
+  clear: both;
+  position: relative;
+  color: pink;
+}
+.infobox .subtitle:before, .infobox .subtitle:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 50%;
+  border-bottom: 1px dotted #FF7000;
+}
+.infobox .subtitle:before {
+  left: 0;
+}
+.infobox .subtitle:after {
+  right: 0;
+}
+.infobox .subtitle span {
+  font-family: "Alegreya", serif;
+  font-size: 2.5em;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+@-webkit-keyframes opening-left {
+  from {
+    left: 30%;
+    top: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    left: 30%;
+    top: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 0;
+    top: 0;
+    height: 0;
+  }
+}
+@-moz-keyframes opening-left {
+  from {
+    left: 30%;
+    top: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    left: 30%;
+    top: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 0;
+    top: 0;
+    height: 0;
+  }
+}
+@-o-keyframes opening-left {
+  from {
+    left: 30%;
+    top: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    left: 30%;
+    top: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 0;
+    top: 0;
+    height: 0;
+  }
+}
+@keyframes opening-left {
+  from {
+    left: 30%;
+    top: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    left: 30%;
+    top: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: 0;
+    top: 0;
+    height: 0;
+  }
+}
+@-webkit-keyframes opening-right {
+  from {
+    right: 30%;
+    bottom: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    right: 30%;
+    bottom: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    right: 0;
+    bottom: 0;
+    height: 0;
+  }
+}
+@-moz-keyframes opening-right {
+  from {
+    right: 30%;
+    bottom: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    right: 30%;
+    bottom: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    right: 0;
+    bottom: 0;
+    height: 0;
+  }
+}
+@-o-keyframes opening-right {
+  from {
+    right: 30%;
+    bottom: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    right: 30%;
+    bottom: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    right: 0;
+    bottom: 0;
+    height: 0;
+  }
+}
+@keyframes opening-right {
+  from {
+    right: 30%;
+    bottom: 30%;
+    height: 0;
+    width: 1px;
+  }
+  50% {
+    right: 30%;
+    bottom: 30%;
+    height: 200px;
+    width: 1px;
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    right: 0;
+    bottom: 0;
+    height: 0;
+  }
+}
+@-webkit-keyframes info-appear {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes info-appear {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes info-appear {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes info-appear {
+  from {
+    opacity: 0;
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes bg {
+  from {
+    background: #E5BA73;
+    color: #141414;
+  }
+  to {
+    background: transparent;
+    color: pink;
+  }
+}
+@-moz-keyframes bg {
+  from {
+    background: #E5BA73;
+    color: #141414;
+  }
+  to {
+    background: transparent;
+    color: pink;
+  }
+}
+@-o-keyframes bg {
+  from {
+    background: #E5BA73;
+    color: #141414;
+  }
+  to {
+    background: transparent;
+    color: pink;
+  }
+}
+@keyframes bg {
+  from {
+    background: #E5BA73;
+    color: #141414;
+  }
+  to {
+    background: transparent;
+    color: pink;
+  }
+}
