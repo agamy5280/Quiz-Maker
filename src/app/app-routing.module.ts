@@ -6,8 +6,8 @@ import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'add', component: QuestionsComponent },
-  { path: 'quiz', component: QuizComponent },
+  { path: 'add', component: QuestionsComponent, data: {animation: 'isLeft'} },
+  { path: 'quiz', component: QuizComponent, data: {animation: 'isRight'}},
 ];
 
 @NgModule({

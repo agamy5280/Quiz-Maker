@@ -5,16 +5,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QoutesService {
   URL: string = "https://dummyjson.com/quotes/random";
-  qoute: string ="";
-  author: string ="";
-  temp: any;
+  URL2: string = "https://dummyjson.com/products/categories";
+  categoriesList: any = [];
   constructor(private http: HttpClient) {
    }
-  //  getCategories(): any {
-  //   return this.httpClient.get(`${environment.apiUrl}categories/`);
-  // }
   getQoute(): any {
     return this.http.get(this.URL);
-    // console.log(this.temp);
   }
 }

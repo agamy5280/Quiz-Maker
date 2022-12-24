@@ -16,9 +16,6 @@ export class QuotesComponent implements OnInit {
       this.temp = data;
       this.quote = data.quote;
       this.author = data.author;
-      console.log(this.temp);
-      console.log(this.quote);
-      console.log(this.author);
     })
   }
 }
