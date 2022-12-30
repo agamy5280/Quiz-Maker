@@ -25,6 +25,8 @@ export class QuestionsTemplateComponent implements OnInit {
       this.currentPage = "add";
     }else if (this.router.url == "/quiz") {
       this.currentPage = "quiz";
+      this.addQuestion.get('questionTitle')?.clearValidators();
+      this.addQuestion.get('questionAnswer')?.clearValidators();
     }
   }
   courseOptions = [
@@ -58,7 +60,7 @@ export class QuestionsTemplateComponent implements OnInit {
     questionFormat: new FormControl('', [Validators.requiredTrue]),
     questionType: new FormControl('', [Validators.requiredTrue]),
     questionDifficulty: new FormControl('', [Validators.requiredTrue]),
-    questionTitle: new FormControl('', [Validators.required]),
+    questionTitle: new FormControl('', Validators.required),
     questionAnswer: new FormControl('', [Validators.required]),
   })
   print() {
@@ -72,48 +74,61 @@ export class QuestionsTemplateComponent implements OnInit {
   }
   // Change selection
   changeSelectionFormat(event:any, q:any) {
-    if(this.currentlyChecked2 === event.target.checked){
-      event.target.checked = false;
-      return;
+    if (this.currentPage == 'add') {
+      if(this.currentlyChecked2 === event.target.checked){
+        event.target.checked = false;
+        return;
+      }else {
+        this.currentlyChecked2 = event.target.checked;
+      }
+      if(!event.target.checked) {
+        this.selectedQuestionOptionFormat = '';
+      }
+      else {
+        q = event.target.value? q: "";
+      this.selectedQuestionOptionFormat = q.name;
+      }
     }else {
-      this.currentlyChecked2 = event.target.checked;
-    }
-    if(!event.target.checked) {
-      this.selectedQuestionOptionFormat = '';
-    }
-    else {
-      q = event.target.value? q: "";
-    this.selectedQuestionOptionFormat = q.name;
+      return
     }
   }
   changeSelectionType(event:any, q:any) {
-    if(this.currentlyChecked === event.target.checked){
-      event.target.checked = false;
-      return;
+    if(this.currentPage == 'add') {
+      if(this.currentlyChecked === event.target.checked){
+        event.target.checked = false;
+        return;
+      }else {
+        this.currentlyChecked = event.target.checked;
+      }
+      if(!event.target.checked) {
+        this.selectedQuestionOptionType = '';
+      }
+      else {
+        q = event.target.value? q: "";
+      this.selectedQuestionOptionType = q.name;
+      }
     }else {
-      this.currentlyChecked = event.target.checked;
+      return
     }
-    if(!event.target.checked) {
-      this.selectedQuestionOptionType = '';
-    }
-    else {
-      q = event.target.value? q: "";
-    this.selectedQuestionOptionType = q.name;
-    }
+    
   }
   changeSelectionDifficulty(event:any, q:any) {
-    if(this.currentlyChecked3 === event.target.checked){
-      event.target.checked = false;
-      return;
+    if (this.currentPage == 'add') {
+      if(this.currentlyChecked3 === event.target.checked){
+        event.target.checked = false;
+        return;
+      }else {
+        this.currentlyChecked3 = event.target.checked;
+      }
+      if(!event.target.checked) {
+        this.selectedQuestionOptionDifficulty = '';
+      }
+      else {
+        q = event.target.value? q: "";
+      this.selectedQuestionOptionDifficulty = q.name;
+      }
     }else {
-      this.currentlyChecked3 = event.target.checked;
-    }
-    if(!event.target.checked) {
-      this.selectedQuestionOptionDifficulty = '';
-    }
-    else {
-      q = event.target.value? q: "";
-    this.selectedQuestionOptionDifficulty = q.name;
+      return
     }
   }
 }

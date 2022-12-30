@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+import { NumberTemplateComponent } from './number-template/number-template.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { QuestionsTemplateComponent } from './questions-template/questions-templ
     AddQuestionsComponent,
     GenerateQuizComponent,
     QuotesComponent,
-    QuestionsTemplateComponent
+    QuestionsTemplateComponent,
+    NumberTemplateComponent
   ],
   imports: [
     BrowserModule,
