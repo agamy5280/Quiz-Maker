@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomePageComponent } from './home-page/home-page.component';
-import { QuestionsComponent } from './questions/questions.component';
-import { QuizComponent } from './quiz/quiz.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { GenerateQuizComponent } from './generate-quiz/generate-quiz.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,13 +14,15 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    QuestionsComponent,
-    QuizComponent,
-    QuotesComponent
+    AddQuestionsComponent,
+    GenerateQuizComponent,
+    QuotesComponent,
+    QuestionsTemplateComponent
   ],
   imports: [
     BrowserModule,

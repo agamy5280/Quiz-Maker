@@ -1,18 +1,32 @@
-import {Component} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Form, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { form } from '../interfaces/form';
 @Component({
-  selector: 'app-questions',
-  templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss']
+  selector: 'app-questions-template',
+  templateUrl: './questions-template.component.html',
+  styleUrls: ['./questions-template.component.scss']
 })
-export class QuestionsComponent{
+export class QuestionsTemplateComponent implements OnInit {
   selectedQuestionOptionFormat: any = '';
   selectedQuestionOptionType: any = '';
   selectedQuestionOptionDifficulty: any = '';
   currentlyChecked: any;
   currentlyChecked2: any;
   currentlyChecked3: any;
-  constructor() {}
+  currentPage: string = '';
+  questionsFormArr: string[] = [] ;
+  myForm: form = {} as form;
+  @Output() questionsForm = new EventEmitter<form>();
+  constructor(private router: Router) {}
+    // Determine which current Route is selected
+  ngOnInit() {
+    if(this.router.url == "/add") {
+      this.currentPage = "add";
+    }else if (this.router.url == "/quiz") {
+      this.currentPage = "quiz";
+    }
+  }
   courseOptions = [
     { name: "Basics of Political Economy (LE01)", value: 1 },
     { name: "Money and Banking (LE02)", value: 2 },
@@ -38,7 +52,8 @@ export class QuestionsComponent{
     { name: "Medium", value: 2 },
     { name: "Hard", value: 3 }
   ];
-  addQuestion = new FormGroup({
+  // Form validation
+  addQuestion = new UntypedFormGroup({
     courseName: new FormControl('', [Validators.required]),
     questionFormat: new FormControl('', [Validators.requiredTrue]),
     questionType: new FormControl('', [Validators.requiredTrue]),
@@ -47,13 +62,15 @@ export class QuestionsComponent{
     questionAnswer: new FormControl('', [Validators.required]),
   })
   print() {
-    console.log(this.addQuestion.controls['courseName'].value)
-    console.log(this.selectedQuestionOptionFormat);
-    console.log(this.selectedQuestionOptionType);
-    console.log(this.selectedQuestionOptionDifficulty);
-    console.log(this.addQuestion.controls['questionTitle'].value)
-    console.log(this.addQuestion.controls['questionAnswer'].value)
+    this.myForm.courseName = this.addQuestion.controls['courseName'].value;
+    this.myForm.questionFormat = this.selectedQuestionOptionFormat;
+    this.myForm.questionType = this.selectedQuestionOptionType;
+    this.myForm.questionDifficulty = this.selectedQuestionOptionDifficulty;
+    this.myForm.questionTitle = this.addQuestion.controls['questionTitle'].value;
+    this.myForm.questionAnswer = this.addQuestion.controls['questionAnswer'].value;
+    this.questionsForm.emit(this.myForm);
   }
+  // Change selection
   changeSelectionFormat(event:any, q:any) {
     if(this.currentlyChecked2 === event.target.checked){
       event.target.checked = false;
@@ -62,7 +79,7 @@ export class QuestionsComponent{
       this.currentlyChecked2 = event.target.checked;
     }
     if(!event.target.checked) {
-      this.selectedQuestionOptionFormat = undefined;
+      this.selectedQuestionOptionFormat = '';
     }
     else {
       q = event.target.value? q: "";
@@ -77,7 +94,7 @@ export class QuestionsComponent{
       this.currentlyChecked = event.target.checked;
     }
     if(!event.target.checked) {
-      this.selectedQuestionOptionType = undefined;
+      this.selectedQuestionOptionType = '';
     }
     else {
       q = event.target.value? q: "";
@@ -92,7 +109,7 @@ export class QuestionsComponent{
       this.currentlyChecked3 = event.target.checked;
     }
     if(!event.target.checked) {
-      this.selectedQuestionOptionDifficulty = undefined;
+      this.selectedQuestionOptionDifficulty = '';
     }
     else {
       q = event.target.value? q: "";

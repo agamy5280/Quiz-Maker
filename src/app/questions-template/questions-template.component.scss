@@ -5,7 +5,7 @@
         color: #E5BA73;
         font-family: "Libre Baskerville", serif;
     }
-    h4 {
+    h4, #numberLabel {
         color: pink;
     }
     input[type="checkbox"]:checked {
@@ -29,5 +29,8 @@
         display: grid;
         margin: auto;
         margin-bottom: 20px;
+    }
+    #typeNumber, option, select, #exampleFormControlTextarea1, #exampleFormControlInput1 {
+        font-weight: bold;
     }
 }
