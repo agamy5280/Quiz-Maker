@@ -1,1 +1,74 @@
-<app-questions-template (questionsForm)="name($event)"></app-questions-template>
+<!-- <app-questions-template (questionsForm)="name($event)"></app-questions-template> -->
+<form id="myForm" [formGroup]="addQuestion" (ngSubmit)="print()">
+    <div class="container">
+      <div class="row-fluid">
+        <h4>Select Course Name:</h4>
+        <select class="form-select" formControlName="courseName">
+          <option value="">Select</option>
+          <option *ngFor="let c of courseOptions"> {{c.name}} </option>
+        </select>
+        <ng-container *ngIf="addQuestion.controls['courseName'].touched">
+          <span class="text-danger" *ngIf="addQuestion.controls['courseName']?.errors?.['required']">Please select
+            course!</span>
+        </ng-container>
+      </div>
+      <div class="row-fluid">
+        <h4>Select Question Format:</h4>
+        <div *ngFor="let q of questionOptions; let index = index" >
+            <input type="radio" name= questionFormat id={{q.name}} [value]='q.name' formControlName="questionFormat">
+            <label class="form-check-label" for= {{q.name}} id="labelRadioBTN">
+                {{q.name}}
+            </label>
+        </div>
+        <ng-container *ngIf="addQuestion.controls['questionFormat'].touched">
+          <span class="text-danger" *ngIf="addQuestion.controls['questionFormat']?.errors?.['required']">Please select
+            question format!</span>
+        </ng-container>
+      </div>
+      <!-- ----------------------------------------------------------------------------------------------- -->
+      <div class="row-fluid">
+         <h4> Select Question Type:</h4>
+          <div *ngFor="let q of questionType; let index = index">
+            <input type="radio" name= questionType id={{q.name}} [value]='q.name' formControlName="questionType">
+            <label class="form-check-label" for= {{q.name}} id="labelRadioBTN">
+                {{q.name}}
+            </label>
+          </div>
+          <ng-container *ngIf="addQuestion.controls['questionType'].touched">
+            <span class="text-danger" *ngIf="addQuestion.controls['questionType']?.errors?.['required']">Please select
+              question type!</span>
+          </ng-container>
+        </div>
+         <!-- ----------------------------------------------------------------------------------------------- -->
+      <div class="row-fluid">
+          <h4>Select Question Difficulty:</h4>
+          <div *ngFor="let q of questionDifficulty; let index = index">
+            <input type="radio" name= questionDifficulty id={{q.name}} [value]='q.name' formControlName="questionDifficulty">
+            <label class="form-check-label" for= {{q.name}} id="labelRadioBTN">
+                {{q.name}}
+            </label>
+          </div>
+          <ng-container *ngIf="addQuestion.controls['questionDifficulty'].touched">
+            <span class="text-danger" *ngIf="addQuestion.controls['questionDifficulty']?.errors?.['required']">Please select
+              question difficulty!</span>
+          </ng-container>
+        </div>
+        <div class="mb-3">
+            <h4>Question Title</h4>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Globalization decreases poverty in developing nations" formControlName="questionTitle">
+            <ng-container *ngIf="addQuestion.controls['questionTitle'].touched">
+                <span class="text-danger" *ngIf="addQuestion.controls['questionTitle']?.errors?.['required']">Please enter question title!</span>
+            </ng-container>
+          </div>
+          <div class="mb-3">
+            <h4>Answer</h4>
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="True" rows="3" formControlName="questionAnswer"></textarea>
+            <ng-container *ngIf="addQuestion.controls['questionAnswer'].touched">
+                <span class="text-danger" *ngIf="addQuestion.controls['questionAnswer']?.errors?.['required']">Please enter question answer!</span>
+              </ng-container>
+          </div>
+        <button   [disabled]="!addQuestion.valid"  type="submit" class="btn btn-block btn-primary font-weight-bold py-3">
+          Add Question
+        </button>
+    </div>
+  </form>

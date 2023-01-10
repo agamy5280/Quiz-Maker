@@ -14,7 +14,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { QuestionsTemplateComponent } from './questions-template/questions-template.component';
+
 import { NumberTemplateComponent } from './number-template/number-template.component';
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { NumberTemplateComponent } from './number-template/number-template.compo
     AddQuestionsComponent,
     GenerateQuizComponent,
     QuotesComponent,
-    QuestionsTemplateComponent,
     NumberTemplateComponent
   ],
   imports: [

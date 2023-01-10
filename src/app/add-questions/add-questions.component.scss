@@ -1,0 +1,38 @@
+#myForm {
+    display: flex;
+    .row-fluid, .mb-3{
+        margin-top: 30px;
+        color: #E5BA73;
+        font-family: "Libre Baskerville", serif;
+    }
+    h4 {
+        color: pink;
+    }
+    input[type="radio"]{
+        accent-color: #180A0A;
+    }
+    input[type="radio"] {
+        width: 18px;
+        height: 18px;
+    }
+    label {
+        font-size: 18px;
+    }
+    select.form-select {
+        width: 30%;
+    }
+    #exampleFormControlInput1 {
+        width: 70%;
+    }
+    button{
+        display: grid;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    option, select, #exampleFormControlTextarea1, #exampleFormControlInput1 {
+        font-weight: bold;
+    }
+    #labelRadioBTN {
+        margin-left: 8px;
+    }
+}
