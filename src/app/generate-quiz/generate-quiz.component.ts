@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation  } from '@angular/core';
 import { QuestionArrayNamesService } from '../services/question-array-names.service';
 import { Form, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-generate-quiz',
   templateUrl: './generate-quiz.component.html',
-  styleUrls: ['./generate-quiz.component.scss']
+  styleUrls: ['./generate-quiz.component.scss'],
+  // encapsulation: ViewEncapsulation.None
 })
 export class GenerateQuizComponent {
   courseOptions: any = [];

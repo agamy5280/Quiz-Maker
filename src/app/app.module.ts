@@ -14,8 +14,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { NumberTemplateComponent } from './number-template/number-template.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import {GoTopButtonModule} from 'ng-go-top-button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { NumberTemplateComponent } from './number-template/number-template.compo
     AddQuestionsComponent,
     GenerateQuizComponent,
     QuotesComponent,
-    NumberTemplateComponent
+    NumberTemplateComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { NumberTemplateComponent } from './number-template/number-template.compo
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    GoTopButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
