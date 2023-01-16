@@ -35,4 +35,16 @@
     #labelRadioBTN {
         margin-left: 8px;
     }
+    #aLinkOptions {
+        text-decoration: none;
+    }
+    input[type="checkbox"]{
+        accent-color: #180A0A;
+        width: 18px;
+        height: 18px;
+    }
+    #MCQquestionsOptions {
+        font-weight: bold;
+        margin-top: 10px;
+    }
 }
