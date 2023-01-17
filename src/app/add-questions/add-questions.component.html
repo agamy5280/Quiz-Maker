@@ -143,12 +143,9 @@
         </div>
       </ng-container>
     </ng-container>
-    <ng-container *ngIf="selectedIndexMCQ != null || selectedIndexTF != null">
-      <button [disabled]="!addQuestion.valid" type="submit" class="btn btn-block btn-primary font-weight-bold py-3">
-        Add Question
-      </button>
-    </ng-container>
-    
+        <button [disabled]="!addQuestion.valid" type="submit" class="btn btn-block btn-primary font-weight-bold py-3">
+          Add Question
+        </button>
   </div>
 </form>
 <app-scroll-to-top></app-scroll-to-top>
