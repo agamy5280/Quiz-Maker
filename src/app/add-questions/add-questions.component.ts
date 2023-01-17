@@ -57,7 +57,7 @@ export class AddQuestionsComponent implements OnChanges,OnInit{
   addNewOption() {
       const newOption = this.fb.group({
         question: new FormControl('',[Validators.required]),
-        answer: new FormControl(false),
+        answer: new FormControl(false,[Validators.required]),
       });
       this.questionOptionsMCQ.push(newOption);
       this.limit++;
