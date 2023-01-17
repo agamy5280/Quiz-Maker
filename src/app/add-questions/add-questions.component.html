@@ -55,7 +55,8 @@
     </div>
     <!-- ------------------------------------------------------------------------------------------------->
     <ng-container *ngIf="addQuestion.controls['questionFormat'].value != ''">
-      <ng-container *ngIf="addQuestion.controls['questionFormat'].value != 'MCQ' && addQuestion.controls['questionFormat'].value != 'True/False' " >
+      <ng-container
+        *ngIf="addQuestion.controls['questionFormat'].value != 'MCQ' && addQuestion.controls['questionFormat'].value != 'True/False' ">
         <div class="mb-3">
           <h4>Question Title</h4>
           <input type="text" class="form-control" id="exampleFormControlInput1"
@@ -88,26 +89,28 @@
         <div class="mb-3">
           <h4>MCQ Question Options</h4>
           <ng-container formArrayName="questionOptionsMCQ">
-            <ng-container *ngFor="let ad of questionOptionsMCQ.controls | slice:0:4; let index = index" 
+            <ng-container *ngFor="let ad of questionOptionsMCQ.controls | slice:0:4; let index = index"
               [formGroupName]="index">
               <div class="mb-3">
-                <input type="checkbox" formControlName="answer" [ngModel]="selectedIndexMCQ === index" (change)="changeSelectionCheckBoxMCQ($event, index)">
+                <input type="checkbox" formControlName="answer" [ngModel]="selectedIndexMCQ === index"
+                  (change)="changeSelectionCheckBoxMCQ($event, index)">
                 <label class="form-check-label" id="labelRadioBTN">
                   Choice: {{index + 1 }}
                 </label>
                 <input type="text" class="form-control" id="MCQquestionsOptions" placeholder="Choice {{index + 1}}"
                   formControlName="question">
-                    <ng-container *ngIf="addQuestion.controls['questionOptionsMCQ'].touched">
-                      <span class="text-danger" *ngIf="ad.get('question')?.hasError('required')">Please enter
-                        MCQ option!</span>
-                    </ng-container>
+                <ng-container *ngIf="addQuestion.controls['questionOptionsMCQ'].touched">
+                  <span class="text-danger" *ngIf="ad.get('question')?.hasError('required')">Please enter
+                    MCQ option!</span>
+                </ng-container>
               </div>
               <span class="text-danger" *ngIf="selectedIndexMCQ == null">Please check
                 the correct answer!</span>
             </ng-container>
           </ng-container>
           <ng-container *ngIf="limit < 4">
-            <a (click)="addNewOption()" id="aLinkOptions"><button type="button" class="btn btn-success">Add MCQ Options</button></a>
+            <a (click)="addNewOption()" id="aLinkOptions"><button type="button" class="btn btn-success">Add MCQ
+                Options</button></a>
           </ng-container>
         </div>
       </ng-container>
@@ -146,4 +149,3 @@
   </div>
 </form>
 <app-scroll-to-top></app-scroll-to-top>
-
