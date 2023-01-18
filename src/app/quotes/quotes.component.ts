@@ -13,8 +13,7 @@ export class QuotesComponent implements OnInit {
   constructor(private qouteService: QoutesService) {}
   ngOnInit(): void {
     this.qouteService.getQoute().subscribe((data: any)=>{
-      this.temp = data;
-      this.quote = data.quote;
+      this.quote = data.content;
       this.author = data.author;
     })
   }
